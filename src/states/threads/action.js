@@ -35,11 +35,11 @@ function toggleVoteThreadActionCreator({ threadId, userId }) {
   };
 }
 
-function asyncAddThread({ text, replyTo = '' }) {
+function asyncAddThread({ title, body }) {
   return async (dispatch) => {
     dispatch(showLoading());
     try {
-      const thread = await api.createThread({ text, replyTo });
+      const thread = await api.createThread({ title, body });
       dispatch(addThreadActionCreator(thread));
     } catch (error) {
       alert(error.messagge);

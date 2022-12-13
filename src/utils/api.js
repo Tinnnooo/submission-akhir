@@ -133,6 +133,51 @@ const api = (() => {
     return threadDetail;
   }
 
+  async function createThread({ title, body }) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title,
+        body,
+      }),
+    });
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { thread } } = responseJson;
+
+    return thread;
+  }
+
+  async function toggleVoteThread(id) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads/${id}/up-vote`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        threadId: id,
+      }),
+    });
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+  }
+
   return {
     putAccessToken,
     getAccessToken,
@@ -140,6 +185,10 @@ const api = (() => {
     login,
     getOwnProfile,
     getAllUsers,
+    getAllThreads,
+    createThread,
+    toggleVoteThread,
+    getThreadDetail,
   };
 })();
 

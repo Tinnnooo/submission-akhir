@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --accent-color: #00796b;
+    --foreground-color: #0F1419;
+    --background-color: white;
+    --gray-dark-color: #66757F;
+    --gray-light-color: #edeff1;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--foreground-color);
+    background-color: var(--background-color);
+}
+
+.loading{
+    position: sticky;
+    top: 0;
+}
+
+.login-page, .register-page{
+    max-width: 100%;
+    background-color: #cccfd1;
+    min-height: 100vh;
+}
+
+.login-page__header, .register-page__header{
+display: flex;
+background-color: #66757F;
+padding: 10px;
+}
+
+.login-page__header, .register-page__header h1 {
+    color: #edeff1;
+}
+
+.login-page__main, .register-page__main{
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.login-page__main h2, .register-page__main h2{
+    font-size: 60px;
+    font-weight: 300;
+}
+
+.login-page__main p, .register-page__main p {
+    font-size: 18px;
+}
+
+.login-page__main .link, .register-page__main .link{
+    text-decoration: none;
+    color: #0003aa;
+}
+
+.login-input input, .register-input input{
+    display: block;
+    width: 100%;
+    padding: 12px 8px;
+    margin: 8px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #66757F;
+}
+
+.login-input button, .register-input button{
+    margin-top: 12px;
+    width: 100%;
+    padding: 12px 8px;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 16px;
+    border: 0;
+    background-color: #66757F;
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+}

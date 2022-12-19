@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LoadingBar } from 'react-redux-loading-bar';
 import { Route, Routes } from 'react-router-dom';
 import Loading from './components/Loading';
+import Navigation from './components/Navigation';
+import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { asyncUnsetAuthUser } from './states/authUser/action';
@@ -45,8 +47,16 @@ function App() {
   return (
     <>
       <LoadingBar />
-      <div>
-        <p>Ini Home Page</p>
+      <div className="app-container">
+        <header>
+          <Navigation signOut={onSignOut} authUser={authUser} />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/threads/:id" element={<HomePage />} />
+          </Routes>
+        </main>
       </div>
     </>
   );

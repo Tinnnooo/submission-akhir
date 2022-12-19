@@ -42,7 +42,7 @@ function asyncAddThread({ title, body }) {
       const thread = await api.createThread({ title, body });
       dispatch(addThreadActionCreator(thread));
     } catch (error) {
-      alert(error.messagge);
+      alert(error.message);
     }
     dispatch(hideLoading());
   };
@@ -57,7 +57,7 @@ function asyncToggleVoteThread(threadId) {
     try {
       await api.toggleVoteThread(threadId);
     } catch (error) {
-      alert(error.messagge);
+      alert(error.message);
       dispatch(toggleVoteThreadActionCreator({ threadId, userId: authUser.id }));
     }
     dispatch(hideLoading());

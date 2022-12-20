@@ -1,9 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import ThreadInput from '../components/ThreadInput';
+import ThreadCategoryList from '../components/ThreadCategoryList';
 import ThreadsList from '../components/ThreadsList';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
-import { asyncAddThread, asyncToggleVoteThread } from '../states/threads/action';
+import {
+  asyncToggleDownVoteThread,
+  asyncToggleNeutralDownVoteThread,
+  asyncToggleNeutralUpVoteThread,
+  asyncToggleUpVoteThread,
+} from '../states/threads/action';
 
 function HomePage() {
   const {
@@ -15,27 +20,56 @@ function HomePage() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(asyncPopulateUsersAndThreads);
+    dispatch(asyncPopulateUsersAndThreads());
   }, [dispatch]);
 
-  const onAddThread = ({ title, body }) => {
-    dispatch(asyncAddThread({ title, body }));
+  const onLike = (id) => {
+    dispatch(asyncToggleUpVoteThread(id));
   };
 
-  const onVote = (id) => {
-    dispatch(asyncToggleVoteThread(id));
+  const onDislike = (id) => {
+    dispatch(asyncToggleDownVoteThread(id));
   };
+
+  const onNeutralLike = (id) => {
+    dispatch(asyncToggleNeutralUpVoteThread(id));
+  };
+
+  const onNeutralDislike = (id) => {
+    dispatch(asyncToggleNeutralDownVoteThread(id));
+  };
+
+  const threadCategoryList = threads.filter((thread, index) => (
+    threads.findIndex((obj) => obj.category === thread.category) === index
+  ));
 
   const threadList = threads.map((thread) => ({
     ...thread,
-    user: users.find((user) => user.id === thread.user),
+    user: users.find((user) => user.id === thread.ownerId),
     authUser: authUser.id,
   }));
 
   return (
-    <section>
-      <ThreadInput addSomeThread={onAddThread} />
-      <ThreadsList threads={threadList} vote={onVote} />
+    <section className="home-page">
+      <div className="home-page__category">
+        <div>
+          <h1>Category</h1>
+          <ThreadCategoryList threads={threadCategoryList} />
+        </div>
+      </div>
+      <ThreadsList
+        threads={threadList}
+        like={onLike}
+        dislike={onDislike}
+        neutralLike={onNeutralLike}
+        neutralDislike={onNeutralDislike}
+      />
+      <div className="home-page__category">
+        <div>
+          <h1>Category</h1>
+          <ThreadCategoryList threads={threadCategoryList} />
+        </div>
+      </div>
     </section>
   );
 }

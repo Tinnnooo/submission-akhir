@@ -2,21 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadItem, { threadItemShape } from './ThreadItem';
 
-function ThreadsList({ threads, vote }) {
+function ThreadList({
+  threads, like, dislike, neutralLike, neutralDislike,
+}) {
   return (
-    <div>
-      {
-                threads.map((thread) => (
-                  <ThreadItem key={thread.key} {...thread} vote={vote} />
-                ))
-            }
-    </div>
+    <section className="threads-list">
+      {threads.map((thread) => (
+        <ThreadItem
+          key={thread.id}
+          {...thread}
+          like={like}
+          dislike={dislike}
+          neutralLike={neutralLike}
+          neutralDislike={neutralDislike}
+        />
+      ))}
+    </section>
   );
 }
 
-ThreadsList.propTypes = {
+ThreadList.propTypes = {
   threads: PropTypes.arrayOf(PropTypes.shape(threadItemShape)).isRequired,
-  vote: PropTypes.func.isRequired,
+  like: PropTypes.func.isRequired,
+  dislike: PropTypes.func.isRequired,
+  neutralLike: PropTypes.func.isRequired,
+  neutralDislike: PropTypes.func.isRequired,
 };
 
-export default ThreadsList;
+export default ThreadList;

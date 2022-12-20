@@ -158,7 +158,31 @@ const api = (() => {
     return thread;
   }
 
-  async function toggleVoteThread(id) {
+  async function createComment({ content, commentTo = '' }) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads/${commentTo}/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        content,
+      }),
+    });
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { comment } } = responseJson;
+
+    return comment;
+  }
+
+  async function toggleUpVoteThread(id) {
     const response = await _fetchWithAuth(`${BASE_URL}/threads/${id}/up-vote`, {
       method: 'POST',
       headers: {
@@ -178,6 +202,62 @@ const api = (() => {
     }
   }
 
+  async function toggleDownVoteThread(id) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads/${id}/down-vote`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        threadId: id,
+      }),
+    });
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+  }
+
+  async function toggleNeutralVoteThread(id) {
+    const response = await _fetchWithAuth(`${BASE_URL}/threads/${id}/neutral-vote`, {
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        threadId: id,
+      }),
+    });
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+  }
+
+  async function getAllLeaderBoards() {
+    const response = await fetch(`${BASE_URL}/leaderboards`);
+
+    const responseJson = await response.json();
+
+    const { status, message } = responseJson;
+
+    if (status !== 'success') {
+      throw new Error(message);
+    }
+
+    const { data: { leaderboards } } = responseJson;
+
+    return leaderboards;
+  }
+
   return {
     putAccessToken,
     getAccessToken,
@@ -187,8 +267,12 @@ const api = (() => {
     getAllUsers,
     getAllThreads,
     createThread,
-    toggleVoteThread,
+    toggleUpVoteThread,
     getThreadDetail,
+    createComment,
+    toggleDownVoteThread,
+    toggleNeutralVoteThread,
+    getAllLeaderBoards,
   };
 })();
 

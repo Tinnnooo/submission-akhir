@@ -17,7 +17,7 @@ function RegisterPage() {
   return (
     <section className="register-page">
       <header className="register-page__header">
-        <h1>Dicoding Threads</h1>
+        <h1>WOO Talk - Register</h1>
       </header>
       <article className="register-page__main">
         <h2>Create Yout Account</h2>

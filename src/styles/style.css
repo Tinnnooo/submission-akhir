@@ -21,7 +21,69 @@ body {
 .loading{
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 10;
+}
+
+.navigation{
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.navigation-auth{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-acc{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+    height: 100%;
+    padding: 2px;
+}
+
+.navigation-avatar{
+    height: 100%;
+    border-radius: 50%;
+    margin-left: 15px;
+    border: 2px solid #38b4da;
+}
+
+.navigation-name{
+    font-size: 18px;
+    color: #edeff1;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.navigation-button {
+    height: 20px;
+    text-align: center;
+    align-items: center;
+    color: #edeff1;
+    background-color: transparent;
+    border: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+.navigation-button:hover{
+    color: #41b631;
 }
 
 .login-page, .register-page{
@@ -34,6 +96,7 @@ body {
 display: flex;
 background-color: #66757F;
 padding: 10px;
+z-index: -1;
 }
 
 .login-page__header, .register-page__header h1 {
@@ -85,4 +148,135 @@ padding: 10px;
     font-weight: 600;
     border-radius: 10px;
     cursor: pointer;
+}
+
+
+.home-page{
+    display: flex;
+    justify-content: space-around;
+    background-color: #cecfff;
+}
+
+.threads-list{
+    width: 50%;
+    margin-top: 24px;
+    border: 2px solid #e2e2e2;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 50px;
+}
+
+.home-page__category{
+
+}
+
+.thread-item{
+    background-color: #cecff2;
+    padding: 10px;
+    border: 2px solid #c2c2c2;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.thread-item__header{
+    display: flex;
+    align-items: center;
+}
+
+.thread-item__header img{
+    border-radius: 50%;
+    border: 2px solid #c70e17;
+}
+
+.thread-item__header-user {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    height: 100%;
+}
+
+.thread-item__info{
+    margin-top: 15px;
+}
+
+.header-user__name{
+    font-size: 22px;
+    color: #000;
+    font-weight: 500;
+}
+
+.header-user__time{
+    font-size: 12px;
+    font-weight: 500;
+    color: #696868;
+}
+
+.thread-item__info{
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.info__title{
+    color: #000;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.info__category{
+    font-size: 14px;
+    color: #696868;
+}
+
+.thread-item__content{
+    margin-top: 10px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.thread-item__action {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.action__list{
+    display: flex;
+    align-items: center;
+}
+
+.action__like-button{
+    width: 33px;
+    padding: 2px;
+    background-color: #e2e2e2;
+    border-radius: 6px;
+    border: 1px solid #c2c2c2;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.action__dislike-button{
+    width: 33px;
+    padding: 2px;
+    background-color: #e2e2e2;
+    border-radius: 6px;
+    border: 1px solid #c2c2c2;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.action__comment-button{
+    width: 33px;
+    padding: 2px;
+    background-color: #e2e2e2;
+    border: 1px solid #c2c2c2;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 5px;
 }

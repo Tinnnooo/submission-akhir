@@ -14,7 +14,7 @@ function LoginPage() {
   return (
     <section className="login-page">
       <header className="login-page__header">
-        <h1>Dicoding Threads</h1>
+        <h1>WOO Talk - Login</h1>
       </header>
       <article className="login-page__main">
         <h2>Login</h2>

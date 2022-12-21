@@ -19,15 +19,17 @@ function RegisterPage() {
       <header className="register-page__header">
         <h1>WOO Talk - Register</h1>
       </header>
-      <article className="register-page__main">
-        <h2>Create Yout Account</h2>
-        <RegisterInput register={onRegister} />
-        <p>
-          Already have an account?
-          {' '}
-          <Link className="link" to="/">Login</Link>
-        </p>
-      </article>
+      <div className="register-page__container">
+        <article className="register-page__input">
+          <h2>Create Your Account</h2>
+          <RegisterInput register={onRegister} />
+          <p>
+            Already have an account?
+            {' '}
+            <Link className="link" to="/">Login</Link>
+          </p>
+        </article>
+      </div>
     </section>
   );
 }

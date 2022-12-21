@@ -16,15 +16,17 @@ function LoginPage() {
       <header className="login-page__header">
         <h1>WOO Talk - Login</h1>
       </header>
-      <article className="login-page__main">
-        <h2>Login</h2>
-        <LoginInput login={onLogin} />
-        <p>
-          Don&apos;t have account?
-          {' '}
-          <Link className="link" to="/register">Register</Link>
-        </p>
-      </article>
+      <div className="login-page__container">
+        <article className="login-page__input">
+          <h2>Login</h2>
+          <LoginInput login={onLogin} />
+          <p>
+            Don&apos;t have account?
+            {' '}
+            <Link className="link" to="/register">Register</Link>
+          </p>
+        </article>
+      </div>
     </section>
   );
 }

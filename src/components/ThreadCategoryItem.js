@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function ThreadCategoryItem({ category }) {
   return (
-    <section>
+    <section className="thread-item">
       <p>{`#${category}`}</p>
     </section>
   );

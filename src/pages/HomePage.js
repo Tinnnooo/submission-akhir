@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import ThreadCategoryList from '../components/ThreadCategoryList';
 import ThreadsList from '../components/ThreadsList';
 import { asyncPopulateUsersAndThreads } from '../states/shared/action';
@@ -52,7 +53,7 @@ function HomePage() {
   return (
     <section className="home-page">
       <div className="home-page__category">
-        <div>
+        <div className="category-content">
           <h1>Category</h1>
           <ThreadCategoryList threads={threadCategoryList} />
         </div>
@@ -64,10 +65,10 @@ function HomePage() {
         neutralLike={onNeutralLike}
         neutralDislike={onNeutralDislike}
       />
-      <div className="home-page__category">
-        <div>
-          <h1>Category</h1>
-          <ThreadCategoryList threads={threadCategoryList} />
+      <div className="home-page__side-bar">
+        <div className="side-bar__toggle">
+          <Link to="/create-thread" className="toggle-create">Add Thread</Link>
+          <Link to="/leaderboards" className="toggle-leaderboards">Leaderboards</Link>
         </div>
       </div>
     </section>

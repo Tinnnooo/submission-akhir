@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 
 function Navigation({ authUser, signOut }) {
   const { id, avatar, name } = authUser;
@@ -8,6 +7,9 @@ function Navigation({ authUser, signOut }) {
   return (
 
     <section className="navigation">
+      <nav>
+        <h2 className="home-title">Threads</h2>
+      </nav>
       <div className="navigation-auth">
         <div className="navigation-acc">
           <p className="navigation-name">{name}</p>

@@ -91,7 +91,10 @@ body {
     color: #41b631;
 }
 
-
+.home-title{
+    color: #fff;
+    margin-left: 20px;
+}
 
 .login-page, .register-page{
     max-width: 100%;

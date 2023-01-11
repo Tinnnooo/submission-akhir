@@ -11,14 +11,6 @@ import {
   asyncToggleUpVoteThread,
 } from '../states/threads/action';
 
-import {
-  HomePageContainer,
-  HomePageCategory,
-  HomePageCategoryContent,
-  HomePageSideBar,
-  HomePageSidebarToggle,
-} from '../components/styled/HomePageContainer';
-
 function HomePage() {
   const {
     threads = [],
@@ -59,13 +51,13 @@ function HomePage() {
   }));
 
   return (
-    <HomePageContainer>
-      <HomePageCategory>
-        <HomePageCategoryContent>
+    <section className="home-page">
+      <div className="home-page__category">
+        <div className="category-content">
           <h1>Category</h1>
           <ThreadCategoryList threads={threadCategoryList} />
-        </HomePageCategoryContent>
-      </HomePageCategory>
+        </div>
+      </div>
       <ThreadsList
         threads={threadList}
         like={onLike}
@@ -73,13 +65,13 @@ function HomePage() {
         neutralLike={onNeutralLike}
         neutralDislike={onNeutralDislike}
       />
-      <HomePageSideBar>
-        <HomePageSidebarToggle>
+      <div className="home-page__side-bar">
+        <div className="side-bar__toggle">
           <Link to="/create-thread" className="toggle-create">Add Thread</Link>
           <Link to="/leaderboards" className="toggle-leaderboards">Leaderboards</Link>
-        </HomePageSidebarToggle>
-      </HomePageSideBar>
-    </HomePageContainer>
+        </div>
+      </div>
+    </section>
   );
 }
 

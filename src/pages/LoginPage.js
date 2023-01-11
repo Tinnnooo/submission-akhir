@@ -3,9 +3,6 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoginInput from '../components/LoginInput';
 import { asyncSetAuthUser } from '../states/authUser/action';
-import {
-  LoginPageContainer, LoginPageContent, LoginPageHeader, LoginPageInput,
-} from '../components/styled/LoginPageContainer';
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -15,12 +12,12 @@ function LoginPage() {
   };
 
   return (
-    <LoginPageContainer>
-      <LoginPageHeader>
+    <section className="login-page">
+      <header className="login-page__header">
         <h1>WOO Talk - Login</h1>
-      </LoginPageHeader>
-      <LoginPageContent>
-        <LoginPageInput>
+      </header>
+      <div className="login-page__container">
+        <article className="login-page__input">
           <h2>Login</h2>
           <LoginInput login={onLogin} />
           <p>
@@ -28,9 +25,9 @@ function LoginPage() {
             {' '}
             <Link className="link" to="/register">Register</Link>
           </p>
-        </LoginPageInput>
-      </LoginPageContent>
-    </LoginPageContainer>
+        </article>
+      </div>
+    </section>
   );
 }
 

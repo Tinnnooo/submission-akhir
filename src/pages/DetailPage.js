@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { BackHomeContainer } from '../components/styled/BackHomeContainer';
-import { DetailPageContainer } from '../components/styled/DetailPageContainer';
 import ThreadDetail from '../components/ThreadDetail';
 import {
   asyncAddComment,
@@ -48,20 +46,22 @@ function DetailPage() {
   }
 
   return (
-    <DetailPageContainer>
-      <BackHomeContainer>
-        <Link to="/" className="link-home">Back</Link>
-      </BackHomeContainer>
-      <ThreadDetail
-        {...threadDetail}
-        authUser={authUser.id}
-        like={onLikeThreadDetail}
-        dislike={onDislikeThreadDetail}
-        neutralLike={onNeutralLikeThreadDetail}
-        neutralDislike={onNeutralDislikeDetail}
-        addCommentThread={onCommentThread}
-      />
-    </DetailPageContainer>
+    <section>
+      <div className="detail-thread">
+        <div className="back-home">
+          <Link to="/" className="link-home">Back</Link>
+        </div>
+        <ThreadDetail
+          {...threadDetail}
+          authUser={authUser.id}
+          like={onLikeThreadDetail}
+          dislike={onDislikeThreadDetail}
+          neutralLike={onNeutralLikeThreadDetail}
+          neutralDislike={onNeutralDislikeDetail}
+          addCommentThread={onCommentThread}
+        />
+      </div>
+    </section>
   );
 }
 

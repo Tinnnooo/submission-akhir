@@ -16,7 +16,6 @@
     "react-redux-loading-bar": "^5.0.4",
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
-    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

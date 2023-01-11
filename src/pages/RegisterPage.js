@@ -2,12 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import RegisterInput from '../components/RegisterInput';
-import {
-  RegisterPageContainer,
-  RegisterPageContent,
-  RegisterPageHeader,
-  RegisterPageInput,
-} from '../components/styled/RegisterPageContainer';
 import { asyncRegisterUser } from '../states/users/action';
 
 function RegisterPage() {
@@ -21,12 +15,12 @@ function RegisterPage() {
   };
 
   return (
-    <RegisterPageContainer>
-      <RegisterPageHeader>
+    <section className="register-page">
+      <header className="register-page__header">
         <h1>WOO Talk - Register</h1>
-      </RegisterPageHeader>
-      <RegisterPageContent>
-        <RegisterPageInput>
+      </header>
+      <div className="register-page__container">
+        <article className="register-page__input">
           <h2>Create Your Account</h2>
           <RegisterInput register={onRegister} />
           <p>
@@ -34,9 +28,9 @@ function RegisterPage() {
             {' '}
             <Link className="link" to="/">Login</Link>
           </p>
-        </RegisterPageInput>
-      </RegisterPageContent>
-    </RegisterPageContainer>
+        </article>
+      </div>
+    </section>
   );
 }
 

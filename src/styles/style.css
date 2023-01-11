@@ -96,8 +96,39 @@ body {
     margin-left: 20px;
 }
 
+.login-page, .register-page{
+    max-width: 100%;
+    background-color: #cccfd1;
+    min-height: 100vh;
+}
+
+.login-page__header, .register-page__header{
+display: flex;
+background-color: #66757F;
+padding: 10px;
+width: 100%;
+position: fixed;
+}
+
+.login-page__container, .register-page__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .login-page__header, .register-page__header h1 {
     color: #edeff1;
+}
+
+.login-page__input, .register-page__input{
+    position: relative;
+    width: 350px;
+    width: 350px;
+    padding: 20px 50px 20px 50px;
+    border: 2px solid rgba(1, 128, 49, 0.411);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.411);
 }
 
 
@@ -149,6 +180,30 @@ body {
     margin-bottom: 12px;
 }
 
+
+.home-page{
+    display: flex;
+    justify-content: space-around;
+    background-color: #cecfff;
+}
+
+.home-page__category{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: 100%;
+    margin-top: 68px;
+}
+
+.category-content{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #000;
+    border-radius: 8px;
+}
+
 .category-content h1{
     color: #9495a8;
     font-size: 20px;
@@ -163,6 +218,23 @@ body {
 .thread-category{
     font-size: 18px;
     font-weight: 600;
+}
+
+.home-page__side-bar {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 100%;
+    align-items: center;
+    padding: 15px;
+    margin-top: 96px;
+}
+
+.side-bar__toggle{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
 }
 
 .toggle-create{
@@ -316,6 +388,20 @@ body {
     margin-right: 5px;
 }
 
+.create-thread__page{
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.back-home{
+    width: 100%;
+    margin-top: 60px;
+    padding: 15px;
+}
+
 .link-home{
     font-size: 18px;
     color: #ffffff;
@@ -381,6 +467,12 @@ body {
     background: linear-gradient(rgba(116, 218, 231, 0.664), rgba(90, 220, 224, 0.685));
 }
 
+.leaderboard-container{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 50px 0px 50px ;
+}
+
 .container-title{
     display: flex;
     font-size: 28px;
@@ -441,6 +533,12 @@ body {
 .item-score .score{
     font-size: 24px;
     font-weight: 600;
+}
+
+.detail-thread{
+    padding: 30px 100px 50px 100px;
+    display: flex;
+    flex-direction: column;
 }
 
 .thread-detail__container{

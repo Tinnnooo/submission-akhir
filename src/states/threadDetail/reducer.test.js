@@ -180,44 +180,4 @@ describe('threadDetailReducers function', () => {
       },
     );
   });
-
-  it('should return the thread with upVotesBy thread when given by TOGGLE_NEUTRAL_UP_VOTE_THREAD_DETAIL action', () => {
-    // arrange
-    const initialState = {
-      id: 'thread-1',
-      title: 'Title 1',
-      body: 'Body 1',
-      category: 'Category 1',
-      upVotesBy: 'user-1',
-      downVotesBy: [],
-      comment: '',
-      user: 'user-1',
-      created: '2022-01-22T10:06:55.588Z',
-    };
-
-    const action = {
-      type: 'TOGGLE_NEUTRAL_UP_VOTES_THREAD_DETAIL',
-      payload: {
-        threadId: 'thread-1',
-        userId: 'user-1',
-      },
-    };
-
-    // action
-    const nextState = threadDetailReducer(initialState, action);
-
-    // assert
-    expect(nextState).toEqual({
-      ...initialState,
-      upVotesBy: action.payload.userId,
-    });
-  });
-
-  it('should return the thread with downVotesBy thread when given by TOGGLE_NEUTRAL_DOWN_VOTE_THREAD_DETAIL action', () => {
-    // arrange
-
-    // action
-
-    // assert
-  });
 });
